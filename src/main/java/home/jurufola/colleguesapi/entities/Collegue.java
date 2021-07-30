@@ -100,7 +100,7 @@ public class Collegue {
     }
 
     /**
-     * Sette nom
+     * Setter nom
      * @param nom Le nom du collègue
      */
 

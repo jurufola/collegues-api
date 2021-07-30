@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author juruf_000
  */
 public interface CollegueRepository extends JpaRepository<Collegue, Long> {
-    Collegue getCollegueByName(String name);
+    Collegue findByNom(String nom);
 }

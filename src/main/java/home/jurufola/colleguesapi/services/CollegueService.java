@@ -14,7 +14,19 @@ public class CollegueService {
     @Autowired
     CollegueRepository collegueRepository;
 
-    public Collegue getCollegueByName(String name) {
-        return collegueRepository.getCollegueByName(name);
+    /**
+     * Récupere un collegue dans la base à partir de son nom
+     * @param nom Le nom du collègue
+     * @return
+     */
+    public Collegue getCollegueByName(String nom) {
+        return collegueRepository.findByNom(nom);
+
+
+    }
+
+    public String addCollegue(Collegue collegue) {
+        collegueRepository.save(collegue);
+        return "Ajout Collègue OK";
     }
 }
