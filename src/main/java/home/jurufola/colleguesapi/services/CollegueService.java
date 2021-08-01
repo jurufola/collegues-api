@@ -35,4 +35,8 @@ public class CollegueService {
     public List<String> getMatriculesByName(String nom) {
         return collegueRepository.getMatriculesByName(nom);
     }
+
+    public Collegue getCollegueByMatricule(String matricule) {
+        return collegueRepository.findByMatricule(matricule);
+    }
 }

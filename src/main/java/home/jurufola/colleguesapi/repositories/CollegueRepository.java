@@ -14,4 +14,6 @@ public interface CollegueRepository extends JpaRepository<Collegue, Long> {
     Collegue findByNom(String nom);
     @Query("SELECT matricule FROM Collegue c Where c.nom=:name")
     List<String> getMatriculesByName(String name);
+
+    Collegue findByMatricule(String matricule);
 }

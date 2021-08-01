@@ -16,7 +16,7 @@ public class Collegue {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "matricule")
+    @Column(name = "matricule", unique=true)
     private String matricule;
 
     @Column(name = "nom")
