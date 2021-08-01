@@ -5,6 +5,8 @@ import home.jurufola.colleguesapi.repositories.CollegueRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Classe de Service pour la gestion des collègues
  * @author juruf_000
@@ -28,5 +30,9 @@ public class CollegueService {
     public String addCollegue(Collegue collegue) {
         collegueRepository.save(collegue);
         return "Ajout Collègue OK";
+    }
+
+    public List<String> getMatriculesByName(String nom) {
+        return collegueRepository.getMatriculesByName(nom);
     }
 }
