@@ -1,6 +1,7 @@
 package home.jurufola.colleguesapi.controllers;
 
 import home.jurufola.colleguesapi.entities.Collegue;
+import home.jurufola.colleguesapi.exceptions.CollegueNonTrouveException;
 import home.jurufola.colleguesapi.services.CollegueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,7 @@ public class CollegueController {
 
 
     /**
-     * Retoune un liste matrcules correpondant au nom passé en paramètre de la requète
+     * Retoune un liste matricules correpondant au nom passé en paramètre de la requète
      * /collegues?nom=XXX
      * @param nom
      * @return
@@ -36,10 +37,17 @@ public class CollegueController {
         return collegueService.getMatriculesByName(nom);
     }
 
+    /**
+     * Retourne un collegue par matricule
+     * Si collegue non trouvé une exception est levée
+     * @param matricule
+     * @return
+     */
     @GetMapping("collegues/{matricule}")
     public Collegue getCollegueByMatricule(@PathVariable("matricule") String matricule) {
-        System.out.println("Je suis dans getCollegueByMatricule -> " + matricule);
-        return collegueService.getCollegueByMatricule(matricule);
+        Collegue collegue = collegueService.getCollegueByMatricule(matricule);
+        if (collegue == null) throw new CollegueNonTrouveException();
+        return collegue;
     }
 
 
