@@ -51,5 +51,15 @@ public class CollegueController {
         return collegue;
     }
 
+    /**
+     * ceci est un test
+     * @param prenom
+     * @return
+     */
+    @GetMapping("colleguesTest/{prenom}")
+    public void testRoute(@PathVariable("prenom") String prenom) {
+        System.out.println(prenom);
+
+    }
 
 }
