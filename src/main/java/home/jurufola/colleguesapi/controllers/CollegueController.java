@@ -50,7 +50,13 @@ public class CollegueController {
         if (collegue == null) throw new CollegueNonTrouveException();
         return collegue;
     }
-    @GetMapping("collegues/{nom}")
+
+    /**
+     * ceci est un test
+     * @param nom
+     * @return
+     */
+    @GetMapping("colleguesTest1/{nom}")
     public String getStaticName(@PathVariable("nom") String nom) {
         return "Collegue de nom static"+nom;
     }
@@ -60,7 +66,7 @@ public class CollegueController {
      * @param prenom
      * @return
      */
-    @GetMapping("colleguesTest/{prenom}")
+    @GetMapping("colleguesTest2/{prenom}")
     public void testRoute(@PathVariable("prenom") String prenom) {
         System.out.println(prenom);
 
