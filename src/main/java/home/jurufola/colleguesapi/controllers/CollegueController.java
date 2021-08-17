@@ -50,6 +50,10 @@ public class CollegueController {
         if (collegue == null) throw new CollegueNonTrouveException();
         return collegue;
     }
+    @GetMapping("collegues/{nom}")
+    public String getStaticName(@PathVariable("nom") String nom) {
+        return "Collegue de nom static"+nom;
+    }
 
 
 }
